@@ -1,15 +1,18 @@
 import mongoose from 'mongoose';
-import config from './default.json';
+import config from './config';
+import appConfig from './config';
 
-const db = config.mongoUri;
+const db = appConfig.mongoURI;
+
+mongoose.set("strictQuery", false);
 
 const connectDB = async () => {
   try {
+    console.log('db', appConfig.mongoURI);
     await mongoose.connect(db, {});
     console.log('MongoDB Connected...');
   } catch (err: any) {
     throw new Error('Not Connected to Database');
-    // Sortie du processus avec échec
     process.exit(1);
   }
 };

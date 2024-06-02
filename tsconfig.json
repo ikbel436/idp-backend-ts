@@ -1,5 +1,13 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@controllers/*": ["infrastructure/controllers/*"],
+      "@services/*": ["domain/services/*"],
+      "@models/*": ["domain/models/*"],
+      "@express-config": ["config/config.ts"],
+      "@config/*": ["config/*.json"]
+    },
     "target": "es2016",
     "module": "commonjs",
     "rootDir": "./src",

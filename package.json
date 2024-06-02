@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "nodemon dist/server.js",
-    "build": "tsc",
+    "build": "tsc --project tsconfig.json",
     "watch": "tsc && nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node./dist/server.js'"
   },
   "keywords": [],
