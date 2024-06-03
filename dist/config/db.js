@@ -13,16 +13,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
-const default_json_1 = __importDefault(require("./default.json"));
-const db = default_json_1.default.mongoUri;
+const config_1 = __importDefault(require("./config"));
+const db = config_1.default.mongoURI;
+mongoose_1.default.set("strictQuery", false);
 const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        console.log('db', config_1.default.mongoURI);
         yield mongoose_1.default.connect(db, {});
         console.log('MongoDB Connected...');
     }
     catch (err) {
         throw new Error('Not Connected to Database');
-        // Sortie du processus avec échec
         process.exit(1);
     }
 });
