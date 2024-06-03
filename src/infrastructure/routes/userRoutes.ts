@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { UserRepository } from '../Repositories/UserRepository';
+import { MongooseUserRepository  } from '../adapter/MongooseUserRepository';
 import { CreateUserUseCase } from '../../domain/services/service/CreateService';
 import { GetAllUsersUseCase } from '../../domain/services/service/GetAllService';
 import { GetUserByIdUseCase } from '../../domain/services/service/GetUserByIdService';
@@ -9,7 +9,7 @@ import { LoginService } from '../../domain/services/service/LoginService';
 import { UserController } from '../controllers/UserController';
 
 const router = Router();
-const userRepository = new UserRepository();
+const userRepository = new MongooseUserRepository();
 const createUserUseCase = new CreateUserUseCase(userRepository);
 const getAllUsersUseCase = new GetAllUsersUseCase(userRepository);
 const getUserByIdUseCase = new GetUserByIdUseCase(userRepository);

@@ -63,10 +63,13 @@ export class UserController {
 
   async loginUser(req: Request, res: Response): Promise<void> {
     try {
+      console.log('Login request received:', req.body);
       const loginUserDTO: LoginUserDTO = req.body;
       const result = await this.loginUserUseCase.execute(loginUserDTO.email, loginUserDTO.password);
       res.status(200).json(result);
     } catch (error) {
-        res.status(400).json({ error: (error as Error).message });    }
+      console.error('Login error:', error);
+      res.status(400).json({ error: (error as Error).message });
+    }
   }
 }

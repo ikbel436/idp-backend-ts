@@ -28,8 +28,12 @@ export class MongooseUserRepository implements IUserRepository {
   async delete(id: string): Promise<void> {
     await UserEntity.findByIdAndDelete(id).exec();
   }
-
   async findByEmail(email: string): Promise<User | null> {
-    return UserEntity.findOne({ email }).exec() as unknown as User;
+    console.log(`Searching for user with email: ${email}`);
+    const userEntity = await UserEntity.findOne({ email: email.toLowerCase() }).exec();
+    console.log(`Query result: ${JSON.stringify(userEntity)}`);
+    return userEntity? (userEntity.toObject() as User) : null;
   }
+  
+  
 }

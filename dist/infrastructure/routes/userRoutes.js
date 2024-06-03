@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const UserRepository_1 = require("../Repositories/UserRepository");
+const MongooseUserRepository_1 = require("../adapter/MongooseUserRepository");
 const CreateService_1 = require("../../domain/services/service/CreateService");
 const GetAllService_1 = require("../../domain/services/service/GetAllService");
 const GetUserByIdService_1 = require("../../domain/services/service/GetUserByIdService");
@@ -10,7 +10,7 @@ const DeleteUserService_1 = require("../../domain/services/service/DeleteUserSer
 const LoginService_1 = require("../../domain/services/service/LoginService");
 const UserController_1 = require("../controllers/UserController");
 const router = (0, express_1.Router)();
-const userRepository = new UserRepository_1.UserRepository();
+const userRepository = new MongooseUserRepository_1.MongooseUserRepository();
 const createUserUseCase = new CreateService_1.CreateUserUseCase(userRepository);
 const getAllUsersUseCase = new GetAllService_1.GetAllUsersUseCase(userRepository);
 const getUserByIdUseCase = new GetUserByIdService_1.GetUserByIdUseCase(userRepository);

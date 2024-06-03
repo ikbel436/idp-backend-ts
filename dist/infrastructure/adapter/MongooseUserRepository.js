@@ -48,7 +48,10 @@ class MongooseUserRepository {
     }
     findByEmail(email) {
         return __awaiter(this, void 0, void 0, function* () {
-            return UserEntity_1.default.findOne({ email }).exec();
+            console.log(`Searching for user with email: ${email}`);
+            const userEntity = yield UserEntity_1.default.findOne({ email: email.toLowerCase() }).exec();
+            console.log(`Query result: ${JSON.stringify(userEntity)}`);
+            return userEntity ? userEntity.toObject() : null;
         });
     }
 }

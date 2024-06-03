@@ -78,11 +78,13 @@ class UserController {
     loginUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                console.log('Login request received:', req.body);
                 const loginUserDTO = req.body;
                 const result = yield this.loginUserUseCase.execute(loginUserDTO.email, loginUserDTO.password);
                 res.status(200).json(result);
             }
             catch (error) {
+                console.error('Login error:', error);
                 res.status(400).json({ error: error.message });
             }
         });
