@@ -1,5 +1,5 @@
 import express from 'express';
-import userRoutes from './infrastructure/routes/userRoutes';
+import userRoutes from './User/infrastructure/routes/userRoutes';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import connectDB  from './config/db';
