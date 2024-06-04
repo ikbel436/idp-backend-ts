@@ -3,6 +3,13 @@ import { User } from '../../domain/models/User';
 import UserEntity from '../entity/UserEntity';
 
 export class MongooseUserRepository implements IUserRepository {
+  async findOne(criteria: any): Promise<User | null> {
+    return UserEntity.findOne(criteria).exec() as unknown as User | null;
+  }
+  async save(user: User): Promise<void> {
+    const userModel = new UserEntity(user);
+    await userModel.save();
+  }
   async create(user: User): Promise<User> {
     const createdUser = new UserEntity(user);
     await createdUser.save();

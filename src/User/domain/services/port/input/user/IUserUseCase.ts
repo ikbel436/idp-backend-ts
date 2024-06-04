@@ -1,4 +1,3 @@
 export interface IUserUseCase {
-    execute(data: any): Promise<any>;
-  }
-  
+  execute(...args: any[]): Promise<any>;
+}

@@ -2,6 +2,12 @@ import { IUserRepository } from '../../domain/services/port/output/IUserReposito
 import { User } from '../../domain/models/User';
 
 export class UserRepository implements IUserRepository {
+  findOne(criteria: any): Promise<User | null> {
+    throw new Error('Method not implemented.');
+  }
+  save(user: User): Promise<void> {
+    throw new Error('Method not implemented.');
+  }
   private users: User[] = [];
   private nextId = 1;
 

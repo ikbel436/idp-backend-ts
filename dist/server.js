@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const userRoutes_1 = __importDefault(require("./infrastructure/routes/userRoutes"));
+const userRoutes_1 = __importDefault(require("./User/infrastructure/routes/userRoutes"));
 const db_1 = __importDefault(require("./config/db"));
 const app = (0, express_1.default)();
 // Connect Database
